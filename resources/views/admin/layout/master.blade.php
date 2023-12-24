@@ -23,10 +23,10 @@
                                 <li class="list-group-item">Category</li>
                             </a>
                             <a href="{{route('admin.products.index')}}" class="text-decoration-none">
-                                <li class="list-group-item">Product</li>   
+                                <li class="list-group-item">Product</li>
                             </a>
                             <a href="{{route('admin.orders.pending')}}" class="text-decoration-none">
-                                <li class="list-group-item">Pending Order</li>   
+                                <li class="list-group-item">Pending Order</li>
                             </a>
                             <a href="{{route('admin.orders.complete')}}" class="text-decoration-none">
                                 <li class="list-group-item">Complete Order</li>

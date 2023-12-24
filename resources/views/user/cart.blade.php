@@ -30,7 +30,7 @@
                             <td>{{$item->qty * $item->product->price}}</td>
                         </tr>
                     @endforeach
-                    </tbody>    
+                    </tbody>
                 </table>
                 <div class="text-end mt-2">
                     <a href="{{route('productCart.order')}}" class="btn btn-primary">Order Now</a>

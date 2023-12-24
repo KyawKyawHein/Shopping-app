@@ -59,7 +59,6 @@ class UserPageController extends Controller
         if(!Hash::check($request->password,$user->password)){
             return redirect()->back()->with('fail',"Password is not match.");
         }else{
-            $user=User::where('email',$user->email);
             if(!$request->image){
                 $image = $user->image;
             }else{
@@ -87,6 +86,13 @@ class UserPageController extends Controller
     }
 
     public function changePasswordHandler(Request $request){
-
+        $user= auth()->user();
+        $request->validate([
+            'password'=>['required','confirmed']
+        ]);
+        $user->update([
+            "password"=>bcrypt($request->password)
+        ]);
+        return redirect()->route('changeProfile')->with('success',"Update successfully");
     }
 }

@@ -1,7 +1,8 @@
 @extends('user.layout.master')
 
 @section("content")
-       <h3 class="text-primary">Register</h3>
+     <div class="card p-3 shadow">
+          <h3 class="text-primary">Register</h3>
         <form action="{{route('postRegister')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -24,4 +25,5 @@
                 <button class="btn btn-primary">Register</button>
             </div>
         </form>
+     </div>
 @endsection

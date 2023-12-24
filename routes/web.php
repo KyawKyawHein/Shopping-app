@@ -36,7 +36,7 @@ Route::middleware('shareData')->group(function(){
     Route::get('/', [UserPageController::class,'index'])->name('user.dashboard');
     Route::get('/products/{slug}',[UserPageController::class,'show'])->name('product.show');
     //get product by category
-        Route::get('/categories/{category}/products',[UserPageController::class,'productByCategory'])->name('category.product');        
+        Route::get('/categories/{category}/products',[UserPageController::class,'productByCategory'])->name('category.product');
 });
 Route::middleware('shareData','auth')->group(function(){
     //ProductCart
@@ -53,9 +53,9 @@ Route::middleware('shareData','auth')->group(function(){
     //ProductOrder
         Route::controller(ProductOrderController::class)->group(function(){
             // order list
-            Route::get('/orders','index')->name('orders.index');     
-            Route::get('/orders/pending','pending')->name('orders.pending');     
-            Route::get('/orders/complete','complete')->name('orders.complete');     
+            Route::get('/orders','index')->name('orders.index');
+            Route::get('/orders/pending','pending')->name('orders.pending');
+            Route::get('/orders/complete','complete')->name('orders.complete');
         });
 
     // Profile Change
@@ -83,7 +83,7 @@ Route::prefix('admin')->as('admin.')->middleware('isAdmin')->group(function(){
     Route::resource('categories',CategoryController::class);
     Route::resource('products',ProductController::class);
 
-    // for orders 
+    // for orders
     Route::get('/orders/pending',[OrderController::class,'pending'])->name('orders.pending');
     Route::get('/orders/complete',[OrderController::class,'complete'])->name('orders.complete');
     Route::put('/orders/{id}/makeComplete',[OrderController::class,'makeComplete'])->name('orders.makeComplete');

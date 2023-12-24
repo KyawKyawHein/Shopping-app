@@ -6,11 +6,11 @@
             <a href="{{URL::previous()}}" class="mb-3 btn btn-danger">All Product</a>
         @endif
     <div class="product-container row">
-        @foreach ($products as $product)
+        @forelse ($products as $product)
             <div class="card col-12 col-md-4 mb-2">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="{{asset($product->image)}}" width="150px" alt="">
+                        <img src="{{asset($product->image)}}" width="150px" height="170px" alt="">
                     </div>
                     <h5 class="text-primary text-center"><a href="{{ route('product.show',$product->slug) }}" class="text-decoration-none">{{$product->name}}</a></h5>
                     <div class="d-flex justify-content-between align-items-center">
@@ -22,7 +22,9 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+             @empty
+            <h1 class="text-danger fw-bold text-center">Sorry, there is no product.</h1>
+        @endforelse
         {{ $products->links() }}
     </div>
 @endsection

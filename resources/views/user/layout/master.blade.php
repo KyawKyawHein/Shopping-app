@@ -6,8 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
-<body>
+<body class="body-color">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand text-primary fw-bold" href="/">MM-Shop</a>
@@ -29,11 +30,11 @@
                                 <form action="{{route('logout')}}" method="post">
                                     @csrf
                                     <button class="btn dropdown-item">Logout</button>
-                                </form>    
+                                </form>
                         </li>
                         </ul>
                     </li>
-                    @else    
+                    @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             User
@@ -58,7 +59,7 @@
                         <li><a class="dropdown-item" href="{{route('orders.complete')}}">Success</a></li>
                     </ul>
                 </li>
-            </ul> 
+            </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" value="{{$_GET['search']??''}}" name="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-primary" type="submit">Search</button>
@@ -68,7 +69,7 @@
     </nav>
     <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col-12 col-md-4 ">
+            <div class="col-12 col-md-3 ">
                 <div class="card">
                     <div class="card-body p-0">
                         <ul class="list-group">
@@ -99,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-9">
                 @include('inc.error')
                 @yield('content')
             </div>
@@ -107,5 +108,8 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@yield("script")
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 @section("content")
             @if(!count($orders))
-                <p class="alert alert-danger">There is no orders. <a href="/" class="btn btn-danger btn-sm">Make an order.</a></p>
+                <p class="alert alert-danger">Sorry, there is no complete. <a href="/" class="btn btn-danger btn-sm">Make an order.</a></p>
             @else
                 <table class="table table-striped">
                     <thead>
@@ -33,7 +33,7 @@
                             <td>{{$item->qty * $item->product->price}}</td>
                         </tr>
                     @endforeach
-                    </tbody>    
+                    </tbody>
                 </table>
                 {{ $orders->links() }}
             @endif
